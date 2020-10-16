@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/main.css';
+import '@styles/main.css';
+import logo from '@assets/images/Color_Wordmark.png';
 
 const Login = () => {
   return (
@@ -7,20 +8,16 @@ const Login = () => {
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
-            <img
-              className="h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
-              alt="Workflow"
-            />
+            <img className="h-12 w-auto" src={logo} alt="Workflow" />
             <h2 className="mt-6 text-3xl leading-9 font-extrabold text-gray-900">
               Sign in to your account
             </h2>
             <p className="mt-2 text-sm leading-5 text-gray-600 max-w">
-              Or
+              Or{' '}
               <a
                 href="/"
-                className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                start your 14-day free trial
+                className="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                bring Passable to your schools
               </a>
             </p>
           </div>
@@ -129,7 +126,7 @@ const Login = () => {
                     <input
                       id="remember_me"
                       type="checkbox"
-                      className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                      className="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out"
                     />
                     <label
                       htmlFor="remember_me"
@@ -141,7 +138,7 @@ const Login = () => {
                   <div className="text-sm leading-5">
                     <a
                       href="/"
-                      className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                      className="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                       Forgot your password?
                     </a>
                   </div>
@@ -151,7 +148,7 @@ const Login = () => {
                   <span className="block w-full rounded-md shadow-sm">
                     <button
                       type="submit"
-                      className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                      className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out">
                       Sign in
                     </button>
                   </span>
