@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
 import '@styles/main.css';
 import logo from '@assets/images/Color_Wordmark.png';
 import { FaGoogle } from 'react-icons/fa';
 import { AiFillCloud } from 'react-icons/ai';
+import firebase from 'firebase';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+  const [emailAddress, setEmailAddress] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
+
+  const handleEmailAndPasswordLogin = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .catch((error: firebase.FirebaseError) => {
+        // Handle Errors here.
+        const errorMessage = error.message;
+        alert(errorMessage);
+      })
+      .then(() => history.push('/dashboard'));
+    setLoading(false);
+  };
+
   return (
     <div className="min-h-screen bg-white flex">
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
@@ -65,7 +88,7 @@ const Login = () => {
             </div>
 
             <div className="mt-6">
-              <form action="#" method="POST" className="space-y-6">
+              <form onSubmit={handleEmailAndPasswordLogin} className="space-y-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -75,6 +98,8 @@ const Login = () => {
                   <div className="mt-1 rounded-md shadow-sm">
                     <input
                       id="email"
+                      value={emailAddress}
+                      onChange={(e) => setEmailAddress(e.target.value)}
                       type="email"
                       required
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
@@ -91,6 +116,8 @@ const Login = () => {
                   <div className="mt-1 rounded-md shadow-sm">
                     <input
                       id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       required
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
@@ -121,15 +148,18 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div>
-                  <span className="block w-full rounded-md shadow-sm">
-                    <button
-                      type="submit"
-                      className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out">
-                      Sign in
-                    </button>
-                  </span>
-                </div>
+                {loading && <SigningInStatus />}
+                {!loading && (
+                  <div>
+                    <span className="block w-full rounded-md shadow-sm">
+                      <button
+                        type="submit"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out">
+                        Sign in
+                      </button>
+                    </span>
+                  </div>
+                )}
               </form>
             </div>
           </div>
@@ -145,5 +175,29 @@ const Login = () => {
     </div>
   );
 };
+
+const SigningInStatus = () => (
+  <div className="rounded-md bg-blue-50 p-4">
+    <div className="flex">
+      <div className="flex-shrink-0">
+        {/* Heroicon name: information-circle */}
+        <svg
+          className="h-5 w-5 text-blue-400"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </div>
+      <div className="ml-3 flex-1 md:flex md:justify-between">
+        <p className="text-sm font-bold leading-5 text-blue-700">Securely signing you in...</p>
+      </div>
+    </div>
+  </div>
+);
 
 export default Login;
