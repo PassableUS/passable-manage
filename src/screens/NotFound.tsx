@@ -2,7 +2,6 @@ import React from 'react';
 import '@styles/main.css';
 import { useLocation, useHistory } from 'react-router-dom';
 
-
 const NotFound = () => {
   const location = useLocation();
   const history = useHistory();
@@ -37,13 +36,7 @@ const NotFound = () => {
               </form>
               <p className="mt-3 text-sm leading-5 text-blue-200">
                 Passable is committed to the protection of your data. Read our{' '}
-<<<<<<< HEAD
                 <a href="https://passable.us/licenses" className="text-white font-medium underline">
-=======
-                <a
-                  href="https://passable.us/privacy-policy"
-                  className="text-white font-medium underline">
->>>>>>> 1d8c678ed21e43a31d1e4341a6bc5f94bfd19954
                   Privacy Policy.
                 </a>
               </p>
