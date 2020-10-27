@@ -8,7 +8,7 @@
 
 **Client Documentation WIP**
 
-[View Documentation](https://app.gitbook.com/@josephsemrai/s/passable/)
+[View Documentation](https://josephsemrai.gitbook.io/passable/)
 
 
 
