@@ -3,13 +3,24 @@
 [GitHub Flow Guide](https://guides.github.com/introduction/flow/)
 
 
-
 # Documentation
 
 **Client Documentation WIP**
-
 [View Documentation](https://josephsemrai.gitbook.io/passable/)
 
+**OneRoster v1.1 Final Spec**
+http://www.imsglobal.org/oneroster-v11-final-specification
+
+**OneRoster v1.1 CSV Tables**
+http://www.imsglobal.org/oneroster-v11-final-csv-tables
+
+**Classlink Roster Server Docs (Includes OneRoster Spec Overview + Classlink Roster Server API Docs)**
+https://developer.classlink.com/reference#getting-started-with-oneroster
+
+# Relevant Materials
+
+**Example CSV Data Dump**
+https://www.dropbox.com/s/pd0hkgo3ko8a1cn/OneRoster%201.1%20userIds.zip?dl=0
 
 
 # Useful Tools
