@@ -71,4 +71,4 @@ Tailwind UI does not provide JSX code for its components, to which this extensio
 
 ```import '@styles/main.css';```
 
-**Do not use a relative import to access styles (instead use the @styles/ alias to the styles folder).**
+**Do not use a relative import to access styles (instead use the `@styles/` alias to the styles folder).**
